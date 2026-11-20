@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export const CustomCursor: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
   const [isPointer, setIsPointer] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  // Use a ref to avoid re-attaching listeners when isVisible changes
+  const isVisibleRef = useRef(false);
 
   useEffect(() => {
     // Only enable custom cursor on non-touch desktop
@@ -12,7 +14,10 @@ export const CustomCursor: React.FC = () => {
 
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-      if (!isVisible) setIsVisible(true);
+      if (!isVisibleRef.current) {
+        isVisibleRef.current = true;
+        setIsVisible(true);
+      }
 
       const target = e.target as HTMLElement | null;
       if (target) {
@@ -26,8 +31,14 @@ export const CustomCursor: React.FC = () => {
       }
     };
 
-    const handleMouseLeave = () => setIsVisible(false);
-    const handleMouseEnter = () => setIsVisible(true);
+    const handleMouseLeave = () => {
+      isVisibleRef.current = false;
+      setIsVisible(false);
+    };
+    const handleMouseEnter = () => {
+      isVisibleRef.current = true;
+      setIsVisible(true);
+    };
 
     window.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseleave', handleMouseLeave);
@@ -38,7 +49,8 @@ export const CustomCursor: React.FC = () => {
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseenter', handleMouseEnter);
     };
-  }, [isVisible]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty deps — listeners attach once, refs handle state
 
   if (!isVisible) return null;
 

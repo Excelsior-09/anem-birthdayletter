@@ -124,20 +124,8 @@ export const SakuraParticles: React.FC<SakuraParticlesProps> = ({
         0
       );
 
-      // Gradient for organic petal translucency
-      const grad = c.createRadialGradient(
-        0,
-        -p.size * 0.75,
-        1,
-        0,
-        -p.size * 0.75,
-        p.size
-      );
-      grad.addColorStop(0, `rgba(255, 240, 245, ${p.opacity})`);
-      grad.addColorStop(0.6, `rgba(244, 201, 212, ${p.opacity})`);
-      grad.addColorStop(1, `rgba(232, 165, 183, ${p.opacity * 0.8})`);
-
-      c.fillStyle = grad;
+      // Use a solid averaged petal color instead of recreating RadialGradient every frame
+      c.fillStyle = `rgba(244, 201, 212, ${p.opacity})`;
       c.fill();
 
       // Delicate center vein
@@ -197,7 +185,7 @@ export const SakuraParticles: React.FC<SakuraParticlesProps> = ({
     <canvas
       ref={canvasRef}
       className={`pointer-events-none fixed inset-0 z-10 ${className}`}
-      style={{ opacity: 0.95 }}
+      style={{ opacity: 0.95, willChange: 'transform' }}
       aria-hidden="true"
     />
   );

@@ -26,7 +26,7 @@ export const FinalBirthdayScene: React.FC<FinalBirthdaySceneProps> = ({
       } catch {
         // Fallback
       }
-    }, 4500);
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -80,7 +80,7 @@ export const FinalBirthdayScene: React.FC<FinalBirthdaySceneProps> = ({
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.8 }}
+            transition={{ duration: 1.0, delay: 0.5 }}
             className="font-playfair text-xl sm:text-2xl text-botanical font-normal"
           >
             İyi ki bu dünyaya gelmişsiniz Anem.
@@ -90,7 +90,7 @@ export const FinalBirthdayScene: React.FC<FinalBirthdaySceneProps> = ({
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 2.2 }}
+            transition={{ duration: 1.0, delay: 1.4 }}
             className="font-playfair text-lg sm:text-xl text-warmText font-normal leading-relaxed"
           >
             İyi ki Erol Baba'nın hayatına, Sude'nin ve Ilayda'nın dünyasına dokunmuşsunuz.
@@ -100,7 +100,7 @@ export const FinalBirthdayScene: React.FC<FinalBirthdaySceneProps> = ({
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 3.4 }}
+            transition={{ duration: 1.0, delay: 2.3 }}
             className="font-playfair text-lg sm:text-xl text-rose font-normal"
           >
             İyi ki bir gün yollarımız kesişmiş.
@@ -111,7 +111,7 @@ export const FinalBirthdayScene: React.FC<FinalBirthdaySceneProps> = ({
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.4, delay: 4.6 }}
+          transition={{ duration: 1.2, delay: 3.2 }}
           className="pt-4 pb-2 space-y-3"
         >
           <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-4" />
@@ -128,7 +128,7 @@ export const FinalBirthdayScene: React.FC<FinalBirthdaySceneProps> = ({
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 5.6 }}
+          transition={{ duration: 1.0, delay: 4.2 }}
           className="space-y-1 text-center"
         >
           <p className="font-cormorant italic text-sm sm:text-base text-warmText/75">
@@ -144,7 +144,7 @@ export const FinalBirthdayScene: React.FC<FinalBirthdaySceneProps> = ({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 6.6 }}
+          transition={{ duration: 0.8, delay: 5.0 }}
           className="pt-8 flex flex-wrap items-center justify-center gap-4 text-xs"
         >
           <button

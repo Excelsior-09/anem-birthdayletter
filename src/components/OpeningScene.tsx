@@ -13,7 +13,7 @@ export const OpeningScene: React.FC<OpeningSceneProps> = ({ onStart }) => {
     setIsTransitioning(true);
     setTimeout(() => {
       onStart();
-    }, 900);
+    }, 400);
   };
 
   return (
@@ -99,7 +99,7 @@ export const OpeningScene: React.FC<OpeningSceneProps> = ({ onStart }) => {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="flex items-center space-x-2 text-xs font-cormorant tracking-[0.3em] uppercase text-gold"
         >
           <span className="w-8 h-[1px] bg-gold/50" />
@@ -111,7 +111,7 @@ export const OpeningScene: React.FC<OpeningSceneProps> = ({ onStart }) => {
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.4, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.0, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="space-y-4"
         >
           <h1 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-botanical font-normal leading-tight tracking-tight">
@@ -127,7 +127,7 @@ export const OpeningScene: React.FC<OpeningSceneProps> = ({ onStart }) => {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.4, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.0, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="font-allura text-2xl sm:text-3xl md:text-4xl text-botanical/90 max-w-lg mx-auto"
         >
           Bu küçük sürpriz, çok özel bir insana...
@@ -137,7 +137,7 @@ export const OpeningScene: React.FC<OpeningSceneProps> = ({ onStart }) => {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 3.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.9, delay: 2.0, ease: [0.16, 1, 0.3, 1] }}
           className="pt-4"
         >
           <button
@@ -159,7 +159,7 @@ export const OpeningScene: React.FC<OpeningSceneProps> = ({ onStart }) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.5 }}
-        transition={{ delay: 4.2, duration: 1 }}
+        transition={{ delay: 3.0, duration: 0.8 }}
         className="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs font-lora text-warmText/50 tracking-wider flex items-center space-x-2"
       >
         <span>🌸</span>
