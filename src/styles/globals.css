@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-sakura: #F4C9D4;
+  --color-ivory: #FFF8F0;
+  --color-turquoise: #75C9C2;
+  --color-sage: #A9BFA2;
+  --color-gold: #D6B574;
+  --color-botanical: #355B50;
+  --color-rose: #E8B8C5;
+  --color-warm-text: #51443F;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    background-color: #FFF8F0;
+    color: #51443F;
+    font-family: 'Lora', Georgia, serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #F4C9D4;
+    color: #355B50;
+  }
+
+  :focus-visible {
+    outline: 2px solid #D6B574;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF8F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #D6B574;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8944C;
+}
+
+/* Subtle Paper Texture */
+.luxury-paper-texture {
+  background-color: #FFF8F0;
+  background-image: radial-gradient(#d6b57418 1px, transparent 1px), radial-gradient(#a9bfa212 1px, #FFF8F0 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Gold Gradient Accents */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #A88438 0%, #D6B574 50%, #F5E5BE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border {
+  border-color: rgba(214, 181, 116, 0.4);
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px rgba(214, 181, 116, 0.25);
+}
+
+.rose-glow {
+  box-shadow: 0 0 35px rgba(244, 201, 212, 0.4);
+}
+
+/* Wax Seal Style */
+.wax-seal {
+  background: radial-gradient(circle at 35% 35%, #e0c283 0%, #d6b574 45%, #b59247 80%, #876829 100%);
+  box-shadow: 0 4px 15px rgba(135, 104, 41, 0.35), inset 0 2px 4px rgba(255, 255, 255, 0.5), inset 0 -3px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Hand signature animation */
+@keyframes drawStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawStroke 3s ease forwards;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
